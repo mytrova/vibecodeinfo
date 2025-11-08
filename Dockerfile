@@ -9,6 +9,6 @@ RUN poetry install --no-root --with dev
 
 COPY . .
 
-CMD ["poetry", "run", "python3", "main.py"]
+CMD ["poetry", "run", "python3", "vibecodeinfo/main.py"]
 
 
