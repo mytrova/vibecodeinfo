@@ -1,0 +1,38 @@
+[project]
+name = "vibecodeinfo"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Your Name",email = "you@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "asyncio (>=4.0.0,<5.0.0)",
+    "aiogram (>=3.22.0,<4.0.0)",
+    "apscheduler (>=3.11.1,<4.0.0)",
+    "newsapi-python (>=0.2.7,<0.3.0)"
+]
+
+[dependency-groups]
+dev = [
+    "pytest (>=8.4.2,<9.0.0)",
+    "mypy (>=1.18.2,<2.0.0)",
+    "flake8 (>=7.3.0,<8.0.0)",
+    "pre-commit (>=4.3.0,<5.0.0)"
+]
+
+[tool.mypy]
+ignore_missing_imports = true
+disallow_incomplete_defs = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+exclude = [
+    "tests",
+]
+
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
