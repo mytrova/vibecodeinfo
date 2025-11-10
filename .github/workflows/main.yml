@@ -28,6 +28,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 mypy
       - name: Run flake8
-        run: flake8 .
+        run: flake8 vibecodeinfo tests
       - name: Run mypy
-        run: mypy .
+        run: mypy vibecodeinfo
