@@ -23,9 +23,5 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Build Docker image
-        run: docker build -t vibecodeinfo .
-      - name: Run mypy
-        run: docker run --rm vibecodeinfo poetry run mypy .
-      - name: Run flake8
-        run: docker run --rm vibecodeinfo poetry run mypy .
+      - name: Run linters
+        run: make lint
