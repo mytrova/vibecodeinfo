@@ -2,6 +2,7 @@ from newsapi import NewsApiClient
 import os
 from datetime import datetime, timedelta
 import dataclasses
+from aiogram.utils.markdown import hbold, hlink
 
 
 @dataclasses.dataclass()
@@ -12,9 +13,9 @@ class News:
 
 
 def news_to_html(news: News) -> str:
-    return f"""<b>{news.title}</b>\n
+    return f"""{hbold(news.title)}\n
             {news.description}\n
-            <a href='{news.source}'>источник</a>"""
+            {hlink('источник', news.source)}"""
 
 
 class NewsFinder:
@@ -33,8 +34,10 @@ class NewsFinder:
             result.extend(self._extract_news(data))
         return result
 
-    def _extract_news(self, data: dict) -> list[News]:
+    @staticmethod
+    def _extract_news(data: dict) -> list[News]:
         result = []
+
         for article in data['articles']:
             result.append(
                 News(

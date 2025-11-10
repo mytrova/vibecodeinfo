@@ -16,21 +16,15 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "pytest (>=8.4.2,<9.0.0)",
-    "mypy (>=1.18.2,<2.0.0)",
-    "flake8 (>=7.3.0,<8.0.0)",
     "pre-commit (>=4.3.0,<5.0.0)"
 ]
-
-[tool.mypy]
-ignore_missing_imports = true
-disallow_incomplete_defs = true
-disallow_untyped_calls = true
-disallow_untyped_defs = true
-exclude = [
-    "tests",
+lint = [
+    "mypy (>=1.18.2,<2.0.0)",
+    "flake8 (>=6.1.0,<7.0.0)",
 ]
-
+tests = [
+    "pytest (>=8.4.2,<9.0.0)",
+]
 
 
 [build-system]

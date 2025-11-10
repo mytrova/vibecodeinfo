@@ -2,8 +2,9 @@ import asyncio
 from aiogram import Bot, Dispatcher, Router, F
 from aiogram.filters import CommandStart
 from aiogram.types import Message, KeyboardButton, ReplyKeyboardMarkup
+
 import os
-from news import NewsFinder, news_to_html, News
+from vibecodeinfo.news import NewsFinder, news_to_html, News
 from datetime import timedelta
 
 

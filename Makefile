@@ -1,13 +1,22 @@
+-include .env
+export
+
+dev.install:
+	poetry install --no-root --with dev --with lint --with tests
+
+deps.lock:
+	poetry lock
+
 run:
+	python -m vibecodeinfo
+
+docker.run:
 	docker build -t vibecodeinfo .
 	docker run --env-file .env vibecodeinfo
 
-mypy:
-	docker build -t vibecodeinfo .
-	docker run --rm vibecodeinfo poetry run mypy .
+lint:
+	flake8 vibecodeinfo tests
+	mypy vibecodeinfo
 
-
-
-flake8:
-	docker build -t vibecodeinfo .
-	docker run --rm vibecodeinfo poetry run flake8 .
+test:
+	pytest

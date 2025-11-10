@@ -1,14 +1,14 @@
-FROM python:3.11-alpine
+FROM python:3.13-slim
 
 WORKDIR /app
 
-RUN pip install poetry
-
+RUN pip install poetry==2.2.1 poetry-plugin-export==1.9.0
 COPY pyproject.toml poetry.lock .
-RUN poetry install --no-root --with dev
+RUN poetry export -o requirements.txt && pip install -r requirements.txt
 
-COPY . .
+COPY Makefile /app/
+COPY vibecodeinfo /app/vibecodeЖinfo
 
-CMD ["poetry", "run", "python3", "vibecodeinfo/main.py"]
+CMD ["python3", "vibecodeinfo/__main__.py"]
 
 

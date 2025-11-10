@@ -1,12 +1,25 @@
+fail_fast: true
+
 repos:
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7.3.0
+  - repo: local
     hooks:
-      - id: flake8
-        name: flake8
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.18.2
+      - id: dev.install
+        name: install locked dev dependencies
+        entry: make dev.install
+        language: system
+        pass_filenames: false
+  - repo: local
     hooks:
-      - id: mypy
-        name: mypy
+      - id: lint
+        name: run linter
+        entry: make lint
+        language: system
+        pass_filenames: false
+  - repo: local
+    hooks:
+      - id: test
+        name: run tests
+        entry: make test
+        language: system
+        pass_filenames: false
 
