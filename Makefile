@@ -8,7 +8,7 @@ deps.lock:
 	poetry lock
 
 run:
-	docker compose up --build
+	docker compose up -d --build
 
 lint:
 	flake8 vibecodeinfo tests

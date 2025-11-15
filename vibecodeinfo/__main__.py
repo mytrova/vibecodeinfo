@@ -15,6 +15,7 @@ from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
 from aiogram.client.default import DefaultBotProperties
 import time
 from vibecodeinfo.metrics import published_posts_total
+from prometheus_client import start_http_server
 
 
 CHANNEL = os.getenv("CHANNEL", '')
@@ -65,7 +66,7 @@ async def update_news() -> None:
 
 async def main() -> None:
     await asyncio.create_task(run_metrics_server())
-
+    start_http_server(9000)
     scheduler.add_job(update_news, IntervalTrigger(hours=UPDATE_HOURS), id="update_news")
     scheduler.start()
     logger.info(f"Scheduler запущен с интервалом в {UPDATE_HOURS} часов")

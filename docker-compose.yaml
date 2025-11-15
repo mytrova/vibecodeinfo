@@ -4,6 +4,8 @@ services:
     depends_on:
       - db
     env_file: .env
+    ports:
+      - "9000:9000"
 
   db:
     image: postgres:15
