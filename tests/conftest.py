@@ -1,5 +1,5 @@
 import pytest
-from vibecodeinfo.news import News
+from vibecodeinfo.dto import NewsDTO
 
 
 @pytest.fixture
@@ -21,10 +21,10 @@ def source():
 
 @pytest.fixture
 def news(title, description, source):
-    return News(
+    return NewsDTO(
         title=title,
         description=description,
-        source=source
+        source=source,
     )
 
 

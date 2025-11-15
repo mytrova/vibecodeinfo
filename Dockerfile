@@ -7,8 +7,8 @@ COPY pyproject.toml poetry.lock .
 RUN poetry export -o requirements.txt && pip install -r requirements.txt
 
 COPY Makefile /app/
-COPY vibecodeinfo /app/vibecodeЖinfo
+COPY vibecodeinfo /app/vibecodeinfo
 
-CMD ["python3", "vibecodeinfo/__main__.py"]
+CMD ["python3", "-m", "vibecodeinfo"]
 
 

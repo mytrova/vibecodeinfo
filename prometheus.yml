@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: "vibecodeinfo_bot"
+    static_configs:
+      - targets: ["vibecodeinfo:9000"]

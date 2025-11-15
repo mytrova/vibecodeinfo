@@ -8,11 +8,7 @@ deps.lock:
 	poetry lock
 
 run:
-	python -m vibecodeinfo
-
-docker.run:
-	docker build -t vibecodeinfo .
-	docker run --env-file .env vibecodeinfo
+	docker compose up --build
 
 lint:
 	flake8 vibecodeinfo tests
@@ -20,3 +16,6 @@ lint:
 
 test:
 	pytest
+
+db.init:
+	docker compose run --rm vibecodeinfo python -m vibecodeinfo.db.init_db
